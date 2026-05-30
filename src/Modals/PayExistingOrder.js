@@ -51,7 +51,7 @@ const CheckoutForm = forwardRef((props, ref) => {
       elements,
       clientSecret: props.clientSecret,
       confirmParams: {
-        return_url: 'https://www.laundrybasket.ca/orders/' + props.order.id + '?pay-success=true',
+        return_url: 'https://gsingh100445.github.io/lb-test/orders/' + props.order.id + '?pay-success=true',
       },
     });
 
@@ -93,7 +93,7 @@ const CheckoutForm = forwardRef((props, ref) => {
 
 function PayExistingOrder(props) {
   const stripePromise = loadStripe(
-    'pk_live_51REttGDgVylxnOOnNOmeVEa2arYkZqXULa5JDCvJGwhNvtaTmKdiCsZzlc4F1e6c0rpfoJrYebO4itDP2sXTWawn0021jd6Q7k'
+    'pk_test_51REttMRm1ofrHhYUy4HmIdNc1Lr0pSNTbY15ZQtV5tjE5BH7nPP9rhLr7jUP31lNQx2pHoXCGQJkxUvMe0EYyW1M00E5Ju5yqY'
   );
 
   const childRef = useRef();

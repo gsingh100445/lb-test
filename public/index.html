@@ -119,6 +119,19 @@
         .setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1');
     }
   </script>
+  <script type="text/javascript">
+    // Handle redirect from 404.html for GitHub Pages subdirectory routing
+    (function() {
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect) {
+        var current = window.location.pathname + window.location.search + window.location.hash;
+        if (redirect !== current) {
+          history.replaceState(null, null, redirect);
+        }
+      }
+    })();
+  </script>
 </head>
 
 <body>

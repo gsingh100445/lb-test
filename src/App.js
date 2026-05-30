@@ -152,7 +152,7 @@ function App() {
 
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/lb-test">
         <ThemeProvider theme={LPtheme}>
           <ScrollToTop />
           <AppAppBar isLoggedIn={isLoggedIn} user={user} mode={mode} toggleColorMode={toggleColorMode} logout={logout} />

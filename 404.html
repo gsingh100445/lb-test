@@ -10,12 +10,11 @@
       
       // Store the redirect path in sessionStorage
       if (!sessionStorage.redirect) {
-        // Remove the base path from the pathname if it exists
         var path = location.pathname;
-        if (path.startsWith(basePath + '/')) {
-          path = '/' + path.substring(basePath.length + 1);
-        } else if (path === basePath || path === basePath + '/') {
-          path = '/';
+        if (path === basePath || path === basePath + '/') {
+          path = basePath + '/';
+        } else if (path.startsWith(basePath + '/')) {
+          path = basePath + path.substring(basePath.length);
         }
         sessionStorage.redirect = path + location.search + location.hash;
         location.href = basePath + '/';

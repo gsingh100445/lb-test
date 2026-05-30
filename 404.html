@@ -4,18 +4,10 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script type="text/javascript">
-      // Redirect to index.html while preserving the path
-      var basePath = '/';
-      var currentPath = location.pathname;
-      
-      if (!sessionStorage.redirect) {
-        var redirectPath = currentPath + location.search + location.hash;
-        if (basePath !== '/' && (currentPath === basePath || currentPath === basePath + '/')) {
-          redirectPath = basePath + '/';
-        }
-        sessionStorage.redirect = redirectPath;
-        location.href = basePath;
-      }
+      // GitHub Pages SPA redirect for missing routes
+      var redirectPath = window.location.pathname + window.location.search + window.location.hash;
+      var url = '/?redirect=' + encodeURIComponent(redirectPath);
+      window.location.replace(url);
     </script>
   </head>
   <body>

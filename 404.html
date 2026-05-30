@@ -5,19 +5,16 @@
     <title>Redirecting...</title>
     <script type="text/javascript">
       // Redirect to index.html while preserving the path
-      var pathSegments = location.pathname.split('/').filter(Boolean);
       var basePath = '/';
+      var currentPath = location.pathname;
       
-      // Store the redirect path in sessionStorage
       if (!sessionStorage.redirect) {
-        var path = location.pathname;
-        if (path === basePath || path === basePath + '/') {
-          path = basePath + '/';
-        } else if (path.startsWith(basePath + '/')) {
-          path = basePath + path.substring(basePath.length);
+        var redirectPath = currentPath + location.search + location.hash;
+        if (basePath !== '/' && (currentPath === basePath || currentPath === basePath + '/')) {
+          redirectPath = basePath + '/';
         }
-        sessionStorage.redirect = path + location.search + location.hash;
-        location.href = basePath + '/';
+        sessionStorage.redirect = redirectPath;
+        location.href = basePath;
       }
     </script>
   </head>
